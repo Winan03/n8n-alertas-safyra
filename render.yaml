@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: n8n-alertas-safyra
+    runtime: docker
+    plan: free
+    region: oregon
+    autoDeployTrigger: commit
+    healthCheckPath: /healthz
+    envVars:
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        sync: false
+      - key: DB_POSTGRESDB_PORT
+        value: "5432"
+      - key: DB_POSTGRESDB_DATABASE
+        sync: false
+      - key: DB_POSTGRESDB_USER
+        sync: false
+      - key: DB_POSTGRESDB_PASSWORD
+        sync: false
+      - key: DB_POSTGRESDB_SCHEMA
+        value: public
+      - key: DB_POSTGRESDB_SSL_ENABLED
+        value: "true"
+      - key: N8N_ENCRYPTION_KEY
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
+      - key: N8N_EDITOR_BASE_URL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CALLMEBOT_PHONE
+        sync: false
+      - key: CALLMEBOT_API_KEY
+        sync: false
